@@ -9,4 +9,6 @@ COPY php-base.ini $PHP_INI_DIR/conf.d/
 COPY httpd-base.conf /etc/apache2/sites-available/laravel.conf
 RUN a2dissite 000-default.conf && a2ensite laravel.conf && a2enmod rewrite
 
-RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/compo
+RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
